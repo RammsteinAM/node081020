@@ -1,0 +1,21 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="../style.css")
+  body
+    main
+      div.todo-container
+        div.todo-card
+          form(action='/create' method='POST')
+            div.form-container
+              textarea.add-todo(name='text' rows=5)
+              br
+              input.add-button(type='submit' value='+')
+        for item in todos
+          div.todo-card
+            div.card-content= item.text
+            div.card-control-container  
+              button(onclick=`location.href = '/edit/${item.id}'`) Edit
+              button(onclick=`deleteTodo('${item.id}')`) Delete
+    script
+      include ../script.js

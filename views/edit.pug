@@ -1,0 +1,14 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="../style.css")
+  body
+    main
+      div
+        form(action=`/edit/${item.id}` method='POST')
+          div.container
+            textarea#todo(name='text' rows=5)= item.text
+            br
+            input.save-button(type='submit' value='Save')
+    script
+      include ../script.js
